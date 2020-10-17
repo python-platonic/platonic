@@ -38,11 +38,6 @@ Abstract data structures for Clean Architecture applications in Python. Amazon s
 pip install platonic
 ```
 
-## License
-
-[MIT](https://github.com/python-platonic/platonic/blob/master/LICENSE)
-
-
 ## Credits
 
 This project was generated with [`wemake-python-package`](https://github.com/wemake-services/wemake-python-package). Current template version is: [3cb37d9e138d83958c4d915a3b3aa737b27b6418](https://github.com/wemake-services/wemake-python-package/tree/3cb37d9e138d83958c4d915a3b3aa737b27b6418). See what is [updated](https://github.com/wemake-services/wemake-python-package/compare/3cb37d9e138d83958c4d915a3b3aa737b27b6418...master) since then.

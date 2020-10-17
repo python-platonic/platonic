@@ -3,20 +3,20 @@ from typing import Generic
 
 from documented import DocumentedError
 
-from platonic.queue.input import Message, InputQueue
-from platonic.queue.types import ValueType
 from platonic.queue.base import BaseQueue
+from platonic.queue.input import InputQueue, Message
+from platonic.queue.types import ValueType
 
 
 @dataclasses.dataclass
-class MessageReceiveTimeout(DocumentedError):
+class MessageReceiveTimeout(DocumentedError, Generic[ValueType]):
     """
     No messages received within {self.timeout} {self.readable_time_suffix}.
 
       Queue: {self.queue}
     """
 
-    queue: InputQueue
+    queue: InputQueue[ValueType]
     timeout: int
 
     @property
@@ -24,8 +24,8 @@ class MessageReceiveTimeout(DocumentedError):
         """Second or seconds."""
         if self.timeout == 1:
             return 'second'
-        else:
-            return 'seconds'
+
+        return 'seconds'
 
 
 @dataclasses.dataclass
@@ -72,4 +72,5 @@ class MessageTooLarge(DocumentedError):
 
     @property
     def message_size(self) -> int:
+        """Size of the raw message representation, in bytes."""
         return len(self.message_body)

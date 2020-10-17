@@ -8,4 +8,4 @@ from platonic.queue.types import ValueType
 class Message(Generic[ValueType]):
     """Queue message."""
 
-    value: ValueType
+    value: ValueType  # noqa: WPS110
