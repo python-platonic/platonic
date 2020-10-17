@@ -1,5 +1,5 @@
 import functools
-from typing import TypeVar, MutableMapping, Callable
+from typing import Callable, MutableMapping, TypeVar
 
 KeyType = TypeVar('KeyType')
 ValueType = TypeVar('ValueType')
@@ -9,9 +9,9 @@ def memoize(
     mapping: MutableMapping[KeyType, ValueType],
 ):
     """Cache the responses of the given function in the mapping."""
-    def _decorator(func: Callable[[KeyType], ValueType]):
+    def _decorator(func: Callable[[KeyType], ValueType]):  # noqa: WPS430
         @functools.wraps(func)
-        def wrapper(key: KeyType) -> ValueType:
+        def wrapper(key: KeyType) -> ValueType:  # noqa: WPS430
             try:
                 return mapping[key]
 

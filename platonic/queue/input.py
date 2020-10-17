@@ -1,10 +1,10 @@
 from abc import abstractmethod
 from functools import cached_property
-from typing import Iterable, Callable
+from typing import Callable, Iterable
 
-from platonic.queue.message import Message
-from platonic.queue.types import ValueType, InternalType
 from platonic.queue.base import BaseQueue
+from platonic.queue.message import Message
+from platonic.queue.types import InternalType, ValueType
 
 
 class InputQueue(Iterable[Message[ValueType]], BaseQueue[ValueType]):
@@ -17,9 +17,7 @@ class InputQueue(Iterable[Message[ValueType]], BaseQueue[ValueType]):
 
     @abstractmethod
     def receive(self) -> Message[ValueType]:
-        """
-        Get next message from queue, without deleting it.
-        """
+        """Get next message from queue, without deleting it."""
 
     @abstractmethod
     def receive_with_timeout(self, timeout: int) -> Message[ValueType]:
@@ -40,6 +38,8 @@ class InputQueue(Iterable[Message[ValueType]], BaseQueue[ValueType]):
     @abstractmethod
     def acknowledgement(self, message: Message[ValueType]):
         """
+        Acknowledgement context manager.
+
         Into this context manager, you can wrap any operation with a given
         Message. The context manager will automatically acknowledge the message
         when and if the code in its context completes successfully.
