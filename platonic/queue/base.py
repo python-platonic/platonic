@@ -5,7 +5,7 @@ from typing import Generic, Type
 from typecasts import Typecasts
 
 from platonic.type_args import generic_type_args
-from platonic.queue import ValueType, InternalType
+from platonic.queue.types import ValueType, InternalType
 
 
 class BaseQueue(ABC, Generic[ValueType]):
