@@ -1,11 +1,11 @@
 import dataclasses
-from typing import Generic
+from typing import Generic, TypeVar
 
-from platonic.queue.types import ValueType
+MessageValueType = TypeVar('MessageValueType')
 
 
 @dataclasses.dataclass
-class Message(Generic[ValueType]):
+class Message(Generic[MessageValueType]):
     """Queue message."""
 
-    value: ValueType  # noqa: WPS110
+    value: MessageValueType  # noqa: WPS110
