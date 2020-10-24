@@ -13,7 +13,10 @@ class OutputQueue(BaseQueue[ValueType]):
     @cached_property
     def serialize_value(self) -> Callable[[ValueType], InternalType]:
         """Serialize a queue item into internal representation."""
-        return self.typecasts[self.value_type, self.internal_type]
+        return self.typecasts[  # pragma: no cover
+            self.value_type,
+            self.internal_type,
+        ]
 
     @abstractmethod
     def send(self, instance: ValueType) -> Message[ValueType]:
@@ -25,5 +28,5 @@ class OutputQueue(BaseQueue[ValueType]):
 
     def send_many(self, iterable: Iterable[ValueType]) -> None:
         """Put multiple messages into the queue."""
-        for instance in iterable:
+        for instance in iterable:  # pragma: no cover
             self.send(instance)

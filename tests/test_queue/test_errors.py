@@ -4,7 +4,7 @@ from platonic.queue import MessageReceiveTimeout, MessageTooLarge
 def test_message_receive_timeout_one_second():
     """One second."""
     assert str(MessageReceiveTimeout(
-        queue='mock',  # type: ignore
+        queue='mock',
         timeout=1,
     )) == (
         'No messages received within 1 second.\n'
@@ -15,7 +15,7 @@ def test_message_receive_timeout_one_second():
 def test_message_receive_timeout_two_seconds():
     """Two seconds."""
     assert str(MessageReceiveTimeout(
-        queue='mock',  # type: ignore
+        queue='mock',
         timeout=2,
     )) == (
         'No messages received within 2 seconds.\n'

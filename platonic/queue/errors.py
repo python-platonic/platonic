@@ -1,22 +1,20 @@
 import dataclasses
-from typing import Generic
 
 from documented import DocumentedError
 
 from platonic.queue.base import BaseQueue
 from platonic.queue.input import InputQueue, Message
-from platonic.queue.types import ValueType
 
 
 @dataclasses.dataclass
-class MessageReceiveTimeout(DocumentedError, Generic[ValueType]):
+class MessageReceiveTimeout(DocumentedError):
     """
     No messages received within {self.timeout} {self.readable_time_suffix}.
 
       Queue: {self.queue}
     """
 
-    queue: InputQueue[ValueType]
+    queue: InputQueue
     timeout: int
 
     @property
@@ -29,18 +27,18 @@ class MessageReceiveTimeout(DocumentedError, Generic[ValueType]):
 
 
 @dataclasses.dataclass
-class QueueDoesNotExist(DocumentedError, Generic[ValueType]):
+class QueueDoesNotExist(DocumentedError):
     """Specified queue does not exist."""
 
-    queue: BaseQueue[ValueType]
+    queue: BaseQueue
 
 
 @dataclasses.dataclass
-class MessageDoesNotExist(DocumentedError, Generic[ValueType]):
+class MessageDoesNotExist(DocumentedError):
     """Specified message {self.message} does not exist in the queue."""
 
-    message: Message[ValueType]
-    queue: InputQueue[ValueType]
+    message: Message
+    queue: InputQueue
 
 
 @dataclasses.dataclass

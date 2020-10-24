@@ -13,7 +13,10 @@ class InputQueue(Iterable[Message[ValueType]], BaseQueue[ValueType]):
     @cached_property
     def deserialize_value(self) -> Callable[[InternalType], ValueType]:
         """Deserialize a queue item from internal representation."""
-        return self.typecasts[self.internal_type, self.value_type]
+        return self.typecasts[  # pragma: no cover
+            self.internal_type,
+            self.value_type,
+        ]
 
     @abstractmethod
     def receive(self) -> Message[ValueType]:
