@@ -8,7 +8,7 @@ lint:
 
 .PHONY: unit
 unit:
-	pytest
+	pytest tests
 
 .PHONY: package
 package:
