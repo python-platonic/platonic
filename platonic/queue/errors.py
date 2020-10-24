@@ -1,11 +1,9 @@
 import dataclasses
-from typing import Generic
 
 from documented import DocumentedError
 
 from platonic.queue.base import BaseQueue
 from platonic.queue.input import InputQueue, Message
-from platonic.queue.types import ValueType
 
 
 @dataclasses.dataclass
