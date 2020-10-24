@@ -9,7 +9,7 @@ style = "https://raw.githubusercontent.com/wemake-services/wemake-python-stylegu
 
 [tool.poetry]
 name = "platonic"
-version = "0.1.1"
+version = "0.1.2"
 description = "Abstract datastructures for Clean Architecture applications in Python."
 license = "MIT"
 
