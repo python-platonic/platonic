@@ -8,7 +8,7 @@ from platonic.queue.types import InternalType, ValueType
 
 
 class Sender(BaseQueue[ValueType]):
-    """Queue to write stuff into."""
+    """Send messages to a queue."""
 
     @cached_property
     def serialize_value(self) -> Callable[[ValueType], InternalType]:
@@ -20,11 +20,7 @@ class Sender(BaseQueue[ValueType]):
 
     @abstractmethod
     def send(self, instance: ValueType) -> Message[ValueType]:
-        """
-        Push a message into the queue.
-
-        See `InputQueue.get()` about naming controversy.
-        """
+        """Push a message into the queue."""
 
     def send_many(self, iterable: Iterable[ValueType]) -> None:
         """Put multiple messages into the queue."""
