@@ -3,7 +3,7 @@ import dataclasses
 from documented import DocumentedError
 
 from platonic.queue.base import BaseQueue
-from platonic.queue.input import InputQueue, Message
+from platonic.queue.receiver import Message, Receiver
 
 
 @dataclasses.dataclass
@@ -14,7 +14,7 @@ class MessageReceiveTimeout(DocumentedError):
       Queue: {self.queue}
     """
 
-    queue: InputQueue
+    queue: Receiver
     timeout: int
 
     @property
@@ -38,7 +38,7 @@ class MessageDoesNotExist(DocumentedError):
     """Specified message {self.message} does not exist in the queue."""
 
     message: Message
-    queue: InputQueue
+    queue: Receiver
 
 
 @dataclasses.dataclass
