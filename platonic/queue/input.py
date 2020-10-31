@@ -7,7 +7,7 @@ from platonic.queue.message import Message
 from platonic.queue.types import InternalType, ValueType
 
 
-class InputQueue(Iterable[Message[ValueType]], BaseQueue[ValueType]):
+class Receiver(Iterable[Message[ValueType]], BaseQueue[ValueType]):
     """Queue to read stuff from."""
 
     @cached_property

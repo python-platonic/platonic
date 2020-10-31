@@ -7,7 +7,7 @@ from platonic.queue.message import Message
 from platonic.queue.types import InternalType, ValueType
 
 
-class OutputQueue(BaseQueue[ValueType]):
+class Sender(BaseQueue[ValueType]):
     """Queue to write stuff into."""
 
     @cached_property
